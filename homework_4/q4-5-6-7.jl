@@ -71,7 +71,7 @@ q7e = analyze(DIST, N, D, target, (X) -> [ones(size(X,1)) X.^2], (X) -> [ones(si
 q7_min_eout = answer_min([q7a[2];q7b[2];q7c[2];q7d[2];q7e[2]])
 println("q7: min_eout:$q7_min_eout")
 
-#Eout should be ~ a sum of bias and variance
+#Eout should be equal sum of bias and variance
 tolerance = 0.02
 is_eout_eq_bias_plus_variance = abs(q456[2] - (q456[4]+q456[5])) <= tolerance
 println("\nIs Eout:$(q456[2]) for h(x)=ax close to to bias:$(q456[4]) + variance:$(q456[5]) with tolerance:$tolerance? Ans: $is_eout_eq_bias_plus_variance" )
