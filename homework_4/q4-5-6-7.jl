@@ -51,7 +51,7 @@ end
 
 const N = 2 #training examples 
 const D = 1 #sample x dimensionality 
-const DIST = -1.0:0.0001:1.0 #X instances
+const DIST = -1.0:0.0001:1.0 #random variates of X 
 const EXPERIMENTS = 10000 #number of experiments
 
 q456 = analyze(DIST, N, D, target, (X) -> X, (X) -> X, EXPERIMENTS)
