@@ -7,7 +7,7 @@ include("../tools.jl")
 target(x) = sin(π*x)
 
 #returns Ein, Eout, wbar (parameters for gbar), bias, variance
-function analyze(dist::Range, n::Int, d::Int, target::Function, in_map::Function, out_map, experiments::Int)
+function analyze(dist::Range, n::Int, d::Int, target::Function, in_map::Function, out_map::Function, experiments::Int)
 	eins = zeros(experiments,1) #in-sample errors
 	eouts = zeros(experiments,1) #out-of-sample errors
 	ws = zeros(EXPERIMENTS,d) #weigths
