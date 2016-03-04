@@ -1,4 +1,4 @@
-#Dataset
+#/Sample Dataset
 X = [
 	1.0 2.0
 	-1.0 1.0
@@ -17,14 +17,15 @@ y = [
 	-1.0
 	-1.0
 ]
+#Sample Dataset/
 
-#weights for 2D (w0,w1,w2)
+#current weights (and at the end the final weigths symbolized by w*) for 2D (w0,w1,w2)
 w = [
 	0.0
 	0.0
 	0.0
 ]
-ws = []
+ws = [] #stack of the previous weights
 
 h = zeros(size(y,1))
 t = 1
@@ -70,19 +71,22 @@ tbound = R^2*norm(w,2)^2/ρ^2
 @printf "e. t <= R^2||w*||^2/ρ^2 where LHS=%d RHS=%0.3f \t=> %d\n" (t-1) (tbound) ((t-1) <= tbound)
 #(d)/
 
-#Why PLA convergence
+#/Why PLA convergence
 @printf "\nThe inner product between w(t) and the separating weights w* grows fast. See:\n" 
 for t=1:length(ws)
-	@printf "proof step 1: w(t)'w* = %0.3f\n" dot(ws[t],w)
+	@printf "proof step 1: w(%d)'w* = %0.3f\n" (t-1) dot(ws[t],w)
 end
-@printf "\n...but, the normalized inner product between w(t) and the separating weights w* is bound by 1:\n" 
+@printf "\nwhile the length of w(t) grows slowly. See:\n" 
 for t=1:length(ws)
-	@printf "proof step 2: w(t)'w*/||w(t)||||w*|| = %0.3f\n" dot(ws[t],w)/(norm(ws[t],2)*norm(w,2)) #info: a'a/(norm(a,2)*norm(a,2)) equals 1
+	@printf "proof step 2: ||w(%d)|| = %0.3f\n" (t-1) norm(ws[t],2) 
 end
-@printf "\nsince the length of w(t) grows slowly:\n" 
+@printf "\nhence the normalized inner product between w(t) and the separating weights w* is upper bounded by 1. See:\n" 
 for t=1:length(ws)
-	@printf "proof step 3: ||w(t)|| = %0.3f\n" norm(ws[t],2) 
+	@printf "proof step 3: w(%d)'w*/||w(%d)||||w*|| = %0.3f\n" (t-1) (t-1) dot(ws[t],w)/(norm(ws[t],2)*norm(w,2)) #info: v'v/(norm(v,2)*norm(v,2)) equals 1
 end
+#Why PLA convergence/
+
+
 #treat h as target hypothesis 
 g=h
 
