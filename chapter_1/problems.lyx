@@ -783,7 +783,7 @@ Problem 1.4:
 \end_layout
 
 \begin_layout Standard
-To play with PLA I use code from exercise-1-4.jl.
+To play with PLA I use code from problem-1-4.jl.
  
 \end_layout
 
@@ -1043,6 +1043,315 @@ space PLA converges quickly and the result line (
 \end_inset
 
 ).
+\end_layout
+
+\begin_layout Section*
+Problem 1.5: 
+\end_layout
+
+\begin_layout Standard
+To play with Adaline I use code from problem-1-5.jl.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+(a) 
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $𝝶=100$
+\end_inset
+
+ Adaline out-of-sample error is 
+\begin_inset Formula $1.0$
+\end_inset
+
+ (each test data set is misclassified) and we can't converge as the plot
+ depicts (there is no 
+\begin_inset Formula $g$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename problem-1_5_a.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(b)
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $𝝶=1.0$
+\end_inset
+
+ Adaline out-of-sample error is 
+\begin_inset Formula $0.0645$
+\end_inset
+
+ and how well 
+\begin_inset Formula $g$
+\end_inset
+
+ matches 
+\begin_inset Formula $f$
+\end_inset
+
+ shows the plot below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename problem-1_5_b.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(c)
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $𝝶=0.01$
+\end_inset
+
+ Adaline out-of-sample error is 
+\begin_inset Formula $0.0274$
+\end_inset
+
+ and how well 
+\begin_inset Formula $g$
+\end_inset
+
+ matches 
+\begin_inset Formula $f$
+\end_inset
+
+ shows the plot below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename problem-1_5_c.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(d)
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $𝝶=0.0001$
+\end_inset
+
+ Adaline out-of-sample error is 
+\begin_inset Formula $0.022$
+\end_inset
+
+ and how well 
+\begin_inset Formula $g$
+\end_inset
+
+ matches 
+\begin_inset Formula $f$
+\end_inset
+
+ shows the plot below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename problem-1_5_d.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(e)
+\end_layout
+
+\begin_layout Standard
+According to results from (a) to (d) it shows that the smaller 
+\begin_inset Formula $𝝶$
+\end_inset
+
+ is the better, but as (d) shows when 
+\begin_inset Formula $𝝶$
+\end_inset
+
+ is too small the 
+\begin_inset Formula $E_{out}$
+\end_inset
+
+ no longer decreases.
+ The whole algorithm does not behave as good as PLA and needs a lot of iteration
+s.
+\end_layout
+
+\begin_layout Section*
+Problem 1.6: 
+\end_layout
+
+\begin_layout Standard
+To see results please run problem-1_6.jl code.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+From now
+\begin_inset Formula $\mu$
+\end_inset
+
+ is probability of taking red marble, and we want to have fraction of red
+ marbles in our sample of 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $10$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ marbles to be equal 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+(a)
+\end_layout
+
+\begin_layout Standard
+If
+\begin_inset Formula $\mu$
+\end_inset
+
+ is small then getting no red marbles is very probable in a sample of 
+\begin_inset Formula $10$
+\end_inset
+
+ marbles.
+ When 
+\begin_inset Formula $\mu$
+\end_inset
+
+ grows then getting no red marbles becomes possible but it's by no means
+ probable.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+(b) 
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $1,000$
+\end_inset
+
+ experiments at a time cumulative probability of not getting red marble
+ for small 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is implausible, but for growing 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mu$
+\end_inset
+
+ is highly likely.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+(c) 
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $1,000,000$
+\end_inset
+
+ experiments at a time cumulative probability of not getting red marble
+ for small and medium 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is implausible, but for 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+the largest value of 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is likely.
+ 
 \end_layout
 
 \end_body

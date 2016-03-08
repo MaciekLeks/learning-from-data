@@ -31,8 +31,8 @@ build_testset(n::Int, dims::Int, space_range::Range) = begin
 end
 
 verify(classifier::Function, Xtest::Array, wg::Vector, comment="") = begin
-	successes = mapreduce(id -> classify(Xtest[id,:]) == sign(dot(wg,Xtest[id,:])), +, 1:size(Xtest,1))
-	println("$comment>Adaline Eout is $(successes/size(Xtest,1))")
+	errors = mapreduce(id -> classify(Xtest[id,:]) != sign(dot(wg,Xtest[id,:])), +, 1:size(Xtest,1))
+	println("$comment>Adaline Eout is $(errors/size(Xtest,1))")
 end
 
 
