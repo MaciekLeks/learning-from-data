@@ -1297,10 +1297,14 @@ For
 
  experiments at a time cumulative probability of not getting red marble
  for small 
-\begin_inset Formula $\mu$
+\begin_inset Formula $\mu=0.05$
 \end_inset
 
- is implausible, but for growing 
+ is 
+\begin_inset Formula $1.0$
+\end_inset
+
+, for
 \family roman
 \series medium
 \shape up
@@ -1313,10 +1317,38 @@ For
 \noun off
 \color none
 
-\begin_inset Formula $\mu$
+\begin_inset Formula $\mu=0.5$
 \end_inset
 
- is highly likely.
+ is highly probable, but for 
+\begin_inset Formula $\mu=0.8$
+\end_inset
+
+ is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+implausible
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
  
 \end_layout
 
@@ -1331,10 +1363,14 @@ For
 
  experiments at a time cumulative probability of not getting red marble
  for small and medium 
-\begin_inset Formula $\mu$
+\begin_inset Formula $\mu={0.05,0.5}$
 \end_inset
 
- is implausible, but for 
+ is 
+\begin_inset Formula $1.0$
+\end_inset
+
+, but for 
 \family roman
 \series medium
 \shape up
@@ -1350,7 +1386,31 @@ the largest value of
 \begin_inset Formula $\mu$
 \end_inset
 
- is likely.
+ is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+implausible
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
  
 \end_layout
 

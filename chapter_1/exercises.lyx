@@ -271,18 +271,113 @@ Excercise 1.11
 \end_layout
 
 \begin_layout Standard
-(d) 
-\begin_inset Formula $ $
+We must recall that 
+\begin_inset Formula $E_{out}=\mathbb{P}[h(x)\neq f(x)]$
 \end_inset
 
+.
+\end_layout
 
+\begin_layout Paragraph*
+(a) 
 \end_layout
 
 \begin_layout Standard
+Question: Can S produce a hypothesis that is guaranteed to perform better
+ than random on any point outside D? 
+\begin_inset Newline newline
+\end_inset
+
+Answer: No, because random number getting from Bernoulli distribution will
+ give 
+\begin_inset Formula $E_{out}\thickapprox0.5$
+\end_inset
+
+ and there is now way to get better than random using 
+\begin_inset Formula $S$
+\end_inset
+
+in deterministic sense.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+(b) 
+\end_layout
+
+\begin_layout Standard
+Question: Assume for the rest of the exercise that all the examples i 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ have 
+\begin_inset Formula $y_{n}=+1$
+\end_inset
+
+.
+ Is it possible that the hypothesis that 
+\begin_inset Formula $C$
+\end_inset
+
+ produces turns out to be better than the hypothesis that S produces?
+\begin_inset Newline newline
+\end_inset
+
+Answer: tba
+\end_layout
+
+\begin_layout Paragraph*
+(c) 
+\end_layout
+
+\begin_layout Standard
+Question: If 
+\begin_inset Formula $p=0.9$
+\end_inset
+
+, what is the probability that 
+\begin_inset Formula $S$
+\end_inset
+
+ will produce a better hypothesis than 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Answer: tba
+\end_layout
+
+\begin_layout Paragraph*
+(d) 
+\end_layout
+
+\begin_layout Paragraph*
+
+\series medium
+Question: Is there any value of 
+\begin_inset Formula $p$
+\end_inset
+
+ for which it is more likely than not that 
+\begin_inset Formula $C$
+\end_inset
+
+ will produce a better hypothesis than 
+\begin_inset Formula $S$
+\end_inset
+
+? 
+\end_layout
+
+\begin_layout Standard
+Answer:
 \begin_inset Formula 
-\begin{multline*}
+\[
 \mathbb{P}[E_{out}(C(D))<E_{out}(S(D))]=\mathbb{P}[\mathbb{P}[f(x)\neq h_{2}(x)]<\mathbb{P}[f(x)\neq h_{1}(x)]]=\mathbb{P}[\mathbb{P}[f(x)\neq-1]<\mathbb{P}[f(x)\neq+1]]=\mathbb{P}[\mathbb{P}[f(x)=+1]<\mathbb{P}[f(x)=-1]]=\mathbb{P}[p<1-p]=\mathbb{P}[p<\frac{1}{2}]=1
-\end{multline*}
+\]
 
 \end_inset
 
