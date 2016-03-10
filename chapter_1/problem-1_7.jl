@@ -1,7 +1,7 @@
 using Distributions, DataFrames, Gadfly;  
 
 hoeffding_rhs(n::Int) = (ε::Float64) -> 2.0*exp(-2.0*(ε^2.0)*n) 
-fraction(v::Vector{Float64}) = (ε) -> mean(map(Int,(abs(v .- μ) .>= ε)))
+fraction(v::Vector{Float64}, μ::Float64) = (ε) -> mean(map(Int,(abs(v .- μ) .>= ε)))
 
 #μ - probability of error (# of heads in this case)
 #N - sample size
@@ -30,12 +30,12 @@ println("(b): Plot the probability P[max_i(|υ_i - μ_i|>ε)] with RHS of the Ho
 N = 6 #sample size
 μ = 0.5 #probability of bad event (head in this case)
 d = Binomial(N, μ)
-const ncoins = 2 #number of coins
+const ncoin = 2 #number of coins
 epsilons = linspace(0.0,1.0,20)
 #for the rest of the solution see http://book.caltech.edu/bookforum/showthread.php?t=4414 first 
-deviations = abs(rand(d, ncoins, samples[3])./N - μ) #for (C=2) coins flip each one (N=6) times in (samples[2]=1000) experiments
-worst_deviations =  maximum(deraviations,1) #the worst deraviations in every experiment for two coins
-prob=fraction(vec(worst_deviations))
+deviations = abs(rand(d, ncoin, samples[3])./N - μ) #for (C=2) coins flip each one (N=6) times in (samples[2]=1000) experiments
+worst_deviations =  maximum(deraviations,1) #the worst deraviations in every experiment between ncoin
+prob=fraction(vec(worst_deviations), μ)
 hoef = hoeffding_rhs(N)
 df=DataFrame(ε=epsilons, 
 		prob=map((ε) -> prob(ε),epsilons),
