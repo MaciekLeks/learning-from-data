@@ -29,7 +29,7 @@ d = Binomial(N, μ)
 println("(b): Plot the probability P[max_i(|υ_i - μ_i|>ε)] with RHS of the Hoeffding bound")
 N = 6 #sample size
 μ = 0.5 #probability of bad event (head in this case)
-d = Binomial(N, μ)
+d = Binomial(N, μ) #binomial distribution for samples size N and probability of success μ (bad event in our case)
 const ncoin = 2 #number of coins
 epsilons = linspace(0.0,1.0,20)
 #for the rest of the solution see http://book.caltech.edu/bookforum/showthread.php?t=4414 first 
