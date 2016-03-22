@@ -77,7 +77,7 @@ Lerning from Data
 \begin_layout Author
 
 \series bold
-Problems 
+Problem Solutions 
 \end_layout
 
 \begin_layout Author
@@ -806,6 +806,7 @@ To play with PLA I use code from problem-1-4.jl.
 \begin_layout Standard
 \begin_inset Graphics
 	filename problem-1_4_b.png
+	draft
 
 \end_inset
 
@@ -1060,7 +1061,7 @@ To play with Adaline I use code from problem-1-5.jl.
 
 \begin_layout Standard
 For 
-\begin_inset Formula $𝝶=100$
+\begin_inset Formula $\eta=100$
 \end_inset
 
  Adaline out-of-sample error is 
@@ -1090,7 +1091,7 @@ For
 
 \begin_layout Standard
 For 
-\begin_inset Formula $𝝶=1.0$
+\begin_inset Formula $\eta=1.0$
 \end_inset
 
  Adaline out-of-sample error is 
@@ -1123,7 +1124,7 @@ For
 
 \begin_layout Standard
 For 
-\begin_inset Formula $𝝶=0.01$
+\begin_inset Formula $\eta=0.01$
 \end_inset
 
  Adaline out-of-sample error is 
@@ -1156,7 +1157,7 @@ For
 
 \begin_layout Standard
 For 
-\begin_inset Formula $𝝶=0.0001$
+\begin_inset Formula $\eta=0.0001$
 \end_inset
 
  Adaline out-of-sample error is 
@@ -1189,11 +1190,11 @@ For
 
 \begin_layout Standard
 According to results from (a) to (d) it shows that the smaller 
-\begin_inset Formula $𝝶$
+\begin_inset Formula $\eta$
 \end_inset
 
  is the better, but as (d) shows when 
-\begin_inset Formula $𝝶$
+\begin_inset Formula $\eta$
 \end_inset
 
  is too small the 
@@ -1320,7 +1321,7 @@ For
 \begin_inset Formula $\mu=0.5$
 \end_inset
 
- is highly probable, but for 
+ is probable, but for 
 \begin_inset Formula $\mu=0.8$
 \end_inset
 
@@ -1412,6 +1413,708 @@ implausible
 \color none
 .
  
+\end_layout
+
+\begin_layout Section*
+Problem 1.7:
+\end_layout
+
+\begin_layout Standard
+todo: add intuition and explanation
+\end_layout
+
+\begin_layout Section*
+Problem 1.8:
+\end_layout
+
+\begin_layout Paragraph*
+(a) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $t$
+\end_inset
+
+ is a non-negative random variable and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is an random variable value which satisfies the bound 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+I'm going to proof Markov Inequality: 
+\begin_inset Formula 
+\[
+\mathbb{\mathbb{P}}[t\geq\alpha]\leq\frac{\mathbb{E}[t]}{\alpha}
+\]
+
+\end_inset
+
+Proof: Let 
+\series bold
+
+\begin_inset Formula $\mathbb{\mathbf{1}_{\mathrm{t\geq\alpha}}}$
+\end_inset
+
+
+\series default
+be an indicator function on 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+\mathbb{\mathbf{1}_{\mathrm{t\geq\alpha}}\mathrm{\coloneqq\begin{cases}
+1 & t\geq\alpha\\
+0 & t<\alpha
+\end{cases}}}
+\end{multline*}
+
+\end_inset
+
+We multiply indicator function by 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+\mathbb{\mathbf{\alpha1}_{\mathrm{t\geq\alpha}}\mathrm{\coloneqq\begin{cases}
+\alpha & t\geq\alpha\\
+0 & t<\alpha
+\end{cases}}}
+\end{multline*}
+
+\end_inset
+
+because 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+ is a non-negative random variable we can be sure that:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline*}
+\mathbb{\mathbf{\alpha1}_{\mathrm{t\geq\alpha}}\mathrm{\coloneqq\begin{cases}
+\alpha\leq t, & t\geq\alpha\\
+0<t, & t<\alpha
+\end{cases}}}
+\end{multline*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+hence 
+\begin_inset Formula 
+\[
+\mathbf{\alpha1}_{\mathrm{t\geq\alpha}}\leq t
+\]
+
+\end_inset
+
+we could compute expected value of the inequality:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbb{E}[\mathbf{\alpha1}_{\mathrm{t\geq\alpha}}] & \leq & \mathbb{E}[t]\\
+\alpha\mathbb{E}[\mathbf{1}_{\mathrm{t\geq\alpha}}] & \leq & \mathbb{E}[t]\\
+\alpha[1\mathbb{P}[t\geq\alpha]+0\mathbb{P}[t<\alpha]] & \leq & \mathbb{E}[t]\\
+\alpha\mathbb{P}[t\geq\alpha] & \leq & \mathbb{E}[t]\\
+\mathbb{P}[t\geq\alpha] & \leq & \frac{\mathbb{E}[t]}{\alpha}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(b) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u$
+\end_inset
+
+ is any random variable with mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and variance 
+\begin_inset Formula $\delta^{2}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+I'm going to proof Chebyshev Inequality (for any 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+): 
+\begin_inset Formula 
+\[
+\mathbb{P}[(u-\mu)^{2}\geq\alpha]\leq\frac{\delta^{2}}{\alpha}
+\]
+
+\end_inset
+
+To proof the inequality I use Markov Indequality:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[t\geq\alpha]\leq\frac{\mathbb{E}[t]}{\alpha}
+\]
+
+\end_inset
+
+but let 
+\begin_inset Formula $t\rightarrow(u-v)^{2},$
+\end_inset
+
+since 
+\begin_inset Formula $(u-v)^{2}$
+\end_inset
+
+ is still a random variable and it holds Markov Inequaltiy prerequsites
+ that 
+\begin_inset Formula $t$
+\end_inset
+
+ is a non-negative random variable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[(u-v)^{2}\geq\alpha]\leq\frac{\mathbb{E}[(u-v)^{2}]}{\alpha}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[(u-v)^{2}\geq\alpha]\leq\frac{Var(u)}{\alpha}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[(u-v)^{2}\geq\alpha]\leq\frac{\delta^{2}}{\alpha}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(c) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u_{1},...,u_{N}$
+\end_inset
+
+are iid random variables, each with mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and variance 
+\begin_inset Formula $\delta^{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $u=\frac{1}{N}\sum_{n=1}^{N}u_{n}$
+\end_inset
+
+ (is the same as 
+\begin_inset Formula $\bar{u_{N}}$
+\end_inset
+
+)
+\begin_inset Newline newline
+\end_inset
+
+I'm going to proof 
+\begin_inset Formula $\mathbb{P}[(u-\mu)^{2}\geq\alpha]\leq\frac{\delta^{2}}{N\alpha}$
+\end_inset
+
+ (for any 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+) using general formula of Chebyshev Inequality (
+\begin_inset Formula $\mathbb{P}[(X-\mu)^{2}\geq\alpha]\leq\frac{\delta^{2}}{\alpha}$
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+I replace 
+\begin_inset Formula $X$
+\end_inset
+
+ by another randoma variable 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $u$
+\end_inset
+
+, hence
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbb{P}[(u-\mu)^{2} & \geq & \alpha]\leq\frac{Var(u)}{\alpha}
+\end{eqnarray*}
+
+\end_inset
+
+while 
+\begin_inset Formula 
+\begin{eqnarray*}
+Var(u) & = & Var(\frac{1}{N}\sum_{n=1}^{N}u_{n})\\
+Var(u) & = & \frac{1}{N^{2}}(\sum_{n=1}^{N}Var(u_{n}))\\
+Var(u) & = & \frac{1}{N^{2}}\frac{N\delta^{2}}{1}=\frac{\delta^{2}}{N}
+\end{eqnarray*}
+
+\end_inset
+
+, hence
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[(u-\mu)^{2}\geq\alpha]\leq\frac{\delta^{2}}{N\alpha}
+\]
+
+\end_inset
+
+ and when 
+\begin_inset Formula $N\rightarrow\infty$
+\end_inset
+
+then 
+\begin_inset Formula $u\rightarrow\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\lim_{N\rightarrow\infty}\mathbb{P}[|u-\mu|\geq\alpha]=0$
+\end_inset
+
+ (Weak Law of Large Numbers)
+\end_layout
+
+\begin_layout Section*
+Problem 1.9:
+\end_layout
+
+\begin_layout Paragraph*
+(a) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $t$
+\end_inset
+
+ is a (finite) random variable, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is a postive constant, and 
+\begin_inset Formula $s$
+\end_inset
+
+ is a postive parameter.
+ If 
+\begin_inset Formula $T(s)=\mathbb{E}_{t}[e^{st}]$
+\end_inset
+
+, I'm going to prove that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[t\geq\alpha]\leq e^{-s\alpha}T(s)
+\]
+
+\end_inset
+
+Proof:
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+\begin_inset Formula 
+\[
+\mathbb{P}[t\geq\alpha]\leq e^{-s\alpha}T(s)
+\]
+
+\end_inset
+
+
+\bar default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathbb{P}[t\geq\alpha]\leq e^{-s\alpha}\mathbb{E}_{t}[e^{st}]
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+To proof the inequality I use Markov Indequality:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[t\geq\alpha]\leq\frac{\mathbb{E}[t]}{\alpha}
+\]
+
+\end_inset
+
+and monotonicity of the exponent function for every 
+\begin_inset Formula $s>0$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[a>b]=\mathbb{P}[e^{sa}>e^{sb}]
+\]
+
+\end_inset
+
+hence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{P}[t\geq\alpha]=\mathbb{P}[e^{st}\geq e^{s\alpha}]\leq\frac{\mathbb{E}[e^{st}]}{e^{s\alpha}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbb{P}[t\geq\alpha] & \leq & \frac{\mathbb{E}_{t}[e^{st}]}{e^{s\alpha}}\\
+\mathbb{P}[t\geq\alpha] & \leq & e^{-s\alpha}\mathbb{E}_{t}[e^{st}]\\
+\mathbb{P}[t\geq\alpha] & \leq & e^{-s\alpha}T(s)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(b) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u_{1},...,u_{N}$
+\end_inset
+
+are iid random variables and 
+\begin_inset Formula $u=\frac{1}{N}\sum_{n=1}^{N}u_{n}$
+\end_inset
+
+ (is the same as 
+\begin_inset Formula $\bar{u_{N}}$
+\end_inset
+
+).
+ If 
+\begin_inset Formula $U(s)=\mathbb{E}_{u_{n}}(e^{su_{n}})$
+\end_inset
+
+, I'm going to prove that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[u\geq\alpha]\leq(e^{-s\alpha}U(s))^{N}
+\]
+
+\end_inset
+
+Proof: I start with Markov Inequality for 
+\begin_inset Formula $u$
+\end_inset
+
+ which is a random variable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[u\geq\alpha]\leq\frac{\mathbb{E}_{u}[u]}{\alpha}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+from (a) I also know that 
+\begin_inset Formula $\mathbb{P}[t\geq\alpha]=\mathbb{P}[e^{sNt}\geq e^{sN\alpha}]\leq\frac{\mathbb{E}[e^{sNt}]}{e^{sN\alpha}}$
+\end_inset
+
+, hence
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[u\geq\alpha]\leq\frac{\mathbb{E}_{u}[e^{sNu}]}{e^{sN\alpha}}
+\]
+
+\end_inset
+
+let me focus on 
+\begin_inset Formula $\mathbb{E}_{u}[e^{sNu}]$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbb{E}_{u}[e^{sNu}] & = & \mathbb{E}_{u_{n}}[e^{sN\frac{1}{N}\sum_{n=1}^{N}u_{n}]}]\\
+\mathbb{E}_{u}[e^{sNu}] & = & \mathbb{E}_{u_{n}}[e^{s(u_{1}+...+u_{n}]}]
+\end{eqnarray*}
+
+\end_inset
+
+since 
+\begin_inset Formula $e^{x+y}=e^{x}e^{y}$
+\end_inset
+
+ I get 
+\begin_inset Formula 
+\[
+\mathbb{E}_{u}[e^{sNu}]=\mathbb{E}_{u_{n}}[(e^{su_{n}})^{N}]
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+since 
+\begin_inset Formula $\mathbb{E}[X*X]=\mathbb{E}[X]*\mathbb{E}[X]$
+\end_inset
+
+ I get
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbb{E}_{u}[e^{sNu}] & = & (\mathbb{E}_{u_{n}}[e^{su_{n}}])^{N}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Going back to 
+\begin_inset Formula $\mathbb{P}[u\geq\alpha]\leq\frac{\mathbb{E}_{u}[e^{sNu}]}{e^{sN\alpha}}$
+\end_inset
+
+ I get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbb{P}[u & \geq & \alpha]\leq\frac{\mathbb{E}_{u}[e^{sNu}]}{e^{sN\alpha}}\\
+\mathbb{P}[u & \geq & \alpha]\leq\frac{(\mathbb{E}_{u_{n}}[e^{su_{n}}])^{N}}{e^{sN\alpha}}\\
+\mathbb{P}[u & \geq & \alpha]\leq\frac{(\mathbb{E}_{u_{n}}[e^{su_{n}}])^{N}}{(e^{s\alpha})^{N}}\\
+\mathbb{P}[u & \geq & \alpha]\leq\Biggl(\frac{\mathbb{E}_{u_{n}}[e^{su_{n}}]}{e^{s\alpha}}\Biggr)^{N}\\
+\mathbb{P}[u & \geq & \alpha]\leq(e^{-s\alpha}U(s))^{N}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(c) 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathbb{P}[u_{n}=0]=\mathbb{P}[u_{n}=1]=\frac{1}{2}$
+\end_inset
+
+ (fair coin).
+ I have to evaulate 
+\begin_inset Formula $U(s)$
+\end_inset
+
+ as a function 
+\begin_inset Formula $s,$
+\end_inset
+
+and minimize 
+\begin_inset Formula $e^{-s\alpha}U(s)$
+\end_inset
+
+ with respect of s for fixed 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, where 
+\begin_inset Formula $0<\alpha<1$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+First I'm going to compute 
+\begin_inset Formula $U(s)$
+\end_inset
+
+ for the given probability distribution.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U(s)=\mathbb{E}_{u_{n}}[e^{su_{n}}]=e^{s*0}\mathbb{P}[u_{n}=0]+e^{s*1}\mathbb{P}[u_{n}=1]=\frac{1}{2}(1+e^{s})
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Now, I'm ready to minimize 
+\begin_inset Formula $e^{-s\alpha}U(s)=\frac{1}{2}e^{-s\alpha}+\frac{1}{2}e^{s(1-\alpha)}$
+\end_inset
+
+, so I set the derivative equal to 0, yielding
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{dU}{ds}=(e^{-s\alpha}U(s))' & = & (\frac{1}{2}e^{-s\alpha}+\frac{1}{2}e^{s}e^{-s\alpha})'=(\frac{1}{2}e^{-s\alpha}+\frac{1}{2}e^{s(1-\alpha)})'=-\frac{\alpha}{2}e^{-s\alpha}+(\frac{1}{2}-\frac{\alpha}{2})e^{s(1-\alpha)}=0\\
+(\frac{1}{2}-\frac{\alpha}{2})e^{s(1-\alpha)} & = & \frac{\alpha}{2}e^{-s\alpha}\\
+(1-\alpha)e^{s(1-\alpha)} & = & \alpha e^{-s\alpha}\\
+\frac{(1-\alpha)}{\alpha}\frac{e^{s(1-\alpha)}}{e^{-s\alpha}} & = & 1\\
+\frac{(1-\alpha)}{\alpha}e^{s(1-\alpha)}e^{s\alpha} & = & \frac{\alpha}{1-\alpha}\\
+e^{s(1-\alpha)+s\alpha} & = & \frac{\alpha}{1-\alpha}\\
+e^{s} & = & \frac{\alpha}{1-\alpha}\\
+\ln(e^{s}) & = & \ln(\frac{\alpha}{1-\alpha})\\
+s & = & \ln(\frac{\alpha}{1-\alpha})
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $e^{-s\alpha}U(s)$
+\end_inset
+
+ gets the minimum value for 
+\begin_inset Formula $s=\ln(\frac{\alpha}{1-\alpha})$
+\end_inset
+
+.
+ Let me compute this min value: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{gather*}
+e^{-\ln(\frac{\alpha}{1-\alpha})\alpha}U(\ln(\frac{\alpha}{1-\alpha}))=\frac{1}{2}e^{-\ln(\frac{\alpha}{1-\alpha})\alpha}+\frac{1}{2}e^{\ln(\frac{\alpha}{1-\alpha})(1-\alpha)}=\frac{1}{2}(e^{-\ln(\frac{\alpha}{1-\alpha})})^{\alpha}+\frac{1}{2}(e^{\ln(\frac{\alpha}{1-\alpha})})^{(1-\alpha)}=\\
+\frac{1}{2}(\frac{1}{e^{\ln(\frac{\alpha}{1-\alpha})}})^{\alpha}+\frac{1}{2}(e^{\ln(\frac{\alpha}{1-\alpha})})^{(1-\alpha)}=\frac{1}{2}(\frac{1-\alpha}{\alpha})^{\alpha}+\frac{1}{2}(\frac{\alpha}{1-\alpha})^{(1-\alpha)}=\\
+\end{gather*}
+
+\end_inset
+
+
 \end_layout
 
 \end_body
