@@ -2038,7 +2038,11 @@ and minimize
 \begin_inset Formula $e^{-s\alpha}U(s)$
 \end_inset
 
- with respect of s for fixed 
+ with respect of 
+\begin_inset Formula $s$
+\end_inset
+
+ for fixed 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -2080,7 +2084,7 @@ Now, I'm ready to minimize
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-\frac{dU}{ds}=(e^{-s\alpha}U(s))' & = & (\frac{1}{2}e^{-s\alpha}+\frac{1}{2}e^{s}e^{-s\alpha})'=(\frac{1}{2}e^{-s\alpha}+\frac{1}{2}e^{s(1-\alpha)})'=-\frac{\alpha}{2}e^{-s\alpha}+(\frac{1}{2}-\frac{\alpha}{2})e^{s(1-\alpha)}=0\\
+(e^{-s\alpha}U(s))' & = & (\frac{1}{2}e^{-s\alpha}+\frac{1}{2}e^{s}e^{-s\alpha})'=(\frac{1}{2}e^{-s\alpha}+\frac{1}{2}e^{s(1-\alpha)})'=-\frac{\alpha}{2}e^{-s\alpha}+(\frac{1}{2}-\frac{\alpha}{2})e^{s(1-\alpha)}=0\\
 (\frac{1}{2}-\frac{\alpha}{2})e^{s(1-\alpha)} & = & \frac{\alpha}{2}e^{-s\alpha}\\
 (1-\alpha)e^{s(1-\alpha)} & = & \alpha e^{-s\alpha}\\
 \frac{(1-\alpha)}{\alpha}\frac{e^{s(1-\alpha)}}{e^{-s\alpha}} & = & 1\\
@@ -2109,8 +2113,184 @@ s & = & \ln(\frac{\alpha}{1-\alpha})
 \begin_inset Formula 
 \begin{gather*}
 e^{-\ln(\frac{\alpha}{1-\alpha})\alpha}U(\ln(\frac{\alpha}{1-\alpha}))=\frac{1}{2}e^{-\ln(\frac{\alpha}{1-\alpha})\alpha}+\frac{1}{2}e^{\ln(\frac{\alpha}{1-\alpha})(1-\alpha)}=\frac{1}{2}(e^{-\ln(\frac{\alpha}{1-\alpha})})^{\alpha}+\frac{1}{2}(e^{\ln(\frac{\alpha}{1-\alpha})})^{(1-\alpha)}=\\
-\frac{1}{2}(\frac{1}{e^{\ln(\frac{\alpha}{1-\alpha})}})^{\alpha}+\frac{1}{2}(e^{\ln(\frac{\alpha}{1-\alpha})})^{(1-\alpha)}=\frac{1}{2}(\frac{1-\alpha}{\alpha})^{\alpha}+\frac{1}{2}(\frac{\alpha}{1-\alpha})^{(1-\alpha)}=\\
+=\frac{1}{2}(\frac{1}{e^{\ln(\frac{\alpha}{1-\alpha})}})^{\alpha}+\frac{1}{2}(e^{\ln(\frac{\alpha}{1-\alpha})})^{(1-\alpha)}=\frac{1}{2}(\frac{1-\alpha}{\alpha})^{\alpha}+\frac{1}{2}(\frac{\alpha}{1-\alpha})^{(1-\alpha)}=\frac{1}{2}(\frac{1-\alpha}{\alpha})^{\alpha}+\frac{1}{2}(\frac{1-\alpha}{\alpha})^{\alpha-1}
 \end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(e) 
+\end_layout
+
+\begin_layout Standard
+I must conclude from (c) that , for 
+\begin_inset Formula $0<\epsilon<\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{P}[u\geq\mathbb{E}(u)+\epsilon]\leq2^{-\beta N}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\beta=1+(\frac{1}{2}+\epsilon)\log_{2}(\frac{1}{2}+\epsilon)+(\frac{1}{2}-\epsilon)\log_{2}(\frac{1}{2}-\epsilon)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbb{E}(u)=\frac{1}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To do this let 
+\begin_inset Formula $0<\alpha=\mathbb{E}(u)+\epsilon<1$
+\end_inset
+
+, where 
+\begin_inset Formula $\mathbb{E}(u)=\frac{1}{2}$
+\end_inset
+
+ in 
+\begin_inset Formula 
+\begin{gather*}
+\mathbb{P}[u\geq\alpha]\leq(e^{-s\alpha}U(s))^{N}\\
+\mathbb{P}[u\geq\mathbb{E}(u)+\epsilon]\leq(e^{-s(\mathbb{E}(u)+\epsilon)}U(s))^{N}
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $U(s)=\frac{1}{2}(1+e^{s})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because we are interested in the tightest bound I assumed that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s=\ln(\frac{\alpha}{1-\alpha})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the RHS of the inequlatity I'm skipping the Nth power and I'm going
+ to use 
+\begin_inset Formula $1+\frac{1}{1-a}=\frac{a}{1-a}$
+\end_inset
+
+to simplify the equation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{gather*}
+e^{-s(\alpha)}U(s)=\frac{1}{2}e^{-s\alpha}(1+e^{s})=\frac{1}{2}e^{-s\alpha}(1+e^{s})=\frac{1}{2}e^{-ln(\frac{\alpha}{1-\alpha})(\alpha)}(1+e^{\ln(\frac{\alpha}{1-\alpha})})=\frac{1}{2}(\frac{\alpha}{1-\alpha})^{-\alpha}(1+\frac{\alpha}{1-\alpha})=\\
+=\frac{1}{2}\frac{\alpha^{-\alpha}}{(1-\alpha)^{-\alpha}}(\frac{1}{1-\alpha})=\frac{1}{2}\alpha^{-\alpha}(1-\alpha)^{\alpha}(1-\alpha)^{-1}=\frac{1}{2}\alpha^{-\alpha}(1-\alpha)^{\alpha-1}
+\end{gather*}
+
+\end_inset
+
+Using the above equation I'm going to show that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{gather*}
+2^{-\beta N}=(e^{-s(\alpha)}U(s))^{N}\\
+2^{-\beta}=e^{-s(\alpha)}U(s)\\
+2^{-\beta}=\frac{1}{2}\alpha^{-\alpha}(1-\alpha)^{\alpha-1}\\
+\log_{2}(-\beta)=\log_{2}(\frac{1}{2}\alpha^{-\alpha}(1-\alpha)^{\alpha-1})\\
+-\beta=\log_{2}(\frac{1}{2})+\log_{2}(\alpha^{-\alpha})+\log_{2}((1-\alpha)^{\alpha-1})\\
+-\beta=-1-\alpha\log_{2}(\alpha)+(\alpha-1)\log_{2}(1-\alpha)\\
+\beta=1+\alpha\log_{2}(\alpha)+(1-\alpha)\log_{2}(1-\alpha)
+\end{gather*}
+
+\end_inset
+
+Since I assumed that
+\begin_inset Formula $\alpha=\mathbb{E}(u)+\epsilon=\frac{1}{2}+\epsilon$
+\end_inset
+
+ I get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\beta=1+(\frac{1}{2}+\epsilon)\log_{2}(\frac{1}{2}+\epsilon)+(\frac{1}{2}-\epsilon)\log_{2}(\frac{1}{2}-\epsilon)$
+\end_inset
+
+, 
+\begin_inset Newline newline
+\end_inset
+
+what I had to conclude.
+\begin_inset Newline newline
+\end_inset
+
+Accorind to tha task now I have to show that 
+\begin_inset Formula $\mathbf{\beta>0}$
+\end_inset
+
+ when 
+\begin_inset Formula $0<\epsilon<\frac{1}{2}$
+\end_inset
+
+ what can be seen in the plot: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename problem-1_9_β.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence the bound 
+\begin_inset Formula $2^{-\beta N}$
+\end_inset
+
+is expotentially decreasing in
+\series bold
+ 
+\series default
+
+\begin_inset Formula $N$
+\end_inset
+
+ what is shown in the plot below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename problem-1_9_chernoff-coin-RHS.png
+	scale 60
 
 \end_inset
 
