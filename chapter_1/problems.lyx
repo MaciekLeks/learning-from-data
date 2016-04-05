@@ -806,6 +806,7 @@ To play with PLA I use code from problem-1-4.jl.
 \begin_layout Standard
 \begin_inset Graphics
 	filename problem-1_4_b.png
+	scale 50
 	draft
 
 \end_inset
@@ -1112,6 +1113,7 @@ For
 \begin_layout Standard
 \begin_inset Graphics
 	filename problem-1_5_b.png
+	scale 50
 
 \end_inset
 
@@ -1790,70 +1792,39 @@ Problem 1.9:
 \end_inset
 
 , I'm going to prove that
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
-\[
-\mathbb{P}[t\geq\alpha]\leq e^{-s\alpha}T(s)
-\]
+\begin{align*}
+\mathbb{P}[t & \geq\alpha]\leq e^{-s\alpha}T(s)
+\end{align*}
 
 \end_inset
 
 Proof:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbb{P}[t & \geq & \alpha]\leq e^{-s\alpha}T(s)\\
+\mathbb{P}[t\geq\alpha] & \leq & e^{-s\alpha}\mathbb{E}_{t}[e^{st}]
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-
-\bar under
-\begin_inset Formula 
-\[
-\mathbb{P}[t\geq\alpha]\leq e^{-s\alpha}T(s)
-\]
-
+To proof the inequality I use Markov Inequality 
+\begin_inset Formula $\mathbb{P}[t\geq\alpha]\leq\frac{\mathbb{E}[t]}{\alpha}$
 \end_inset
 
-
-\bar default
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\mathbb{P}[t\geq\alpha]\leq e^{-s\alpha}\mathbb{E}_{t}[e^{st}]
-\]
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-To proof the inequality I use Markov Indequality:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mathbb{P}[t\geq\alpha]\leq\frac{\mathbb{E}[t]}{\alpha}
-\]
-
-\end_inset
-
-and monotonicity of the exponent function for every 
+ and monotonicity of the exponent function for every 
 \begin_inset Formula $s>0$
 \end_inset
 
-:
-\end_layout
 
-\begin_layout Standard
 \begin_inset Formula 
-\[
-\mathbb{P}[a>b]=\mathbb{P}[e^{sa}>e^{sb}]
-\]
+\begin{align*}
+\mathbb{P}[a & >b]=\mathbb{P}[e^{sa}>e^{sb}]
+\end{align*}
 
 \end_inset
 
@@ -2026,7 +1997,7 @@ Let
 \end_inset
 
  (fair coin).
- I have to evaulate 
+ I have to evaluate 
 \begin_inset Formula $U(s)$
 \end_inset
 
@@ -2197,8 +2168,8 @@ s=\ln(\frac{\alpha}{1-\alpha})
 \end_layout
 
 \begin_layout Standard
-For the RHS of the inequlatity I'm skipping the Nth power and I'm going
- to use 
+For the RHS of the inequality I'm skipping the Nth power and I'm going to
+ use 
 \begin_inset Formula $1+\frac{1}{1-a}=\frac{a}{1-a}$
 \end_inset
 
@@ -2250,7 +2221,7 @@ what I had to conclude.
 \begin_inset Newline newline
 \end_inset
 
-Accorind to tha task now I have to show that 
+Accoring to tha task now I have to show that 
 \begin_inset Formula $\mathbf{\beta>0}$
 \end_inset
 
@@ -2292,6 +2263,1034 @@ is expotentially decreasing in
 	filename problem-1_9_c_chernoff-coin-RHS.png
 	scale 60
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Problem 1.10:
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathcal{X}=\{\mathbf{x}_{1,}\mathbf{x}_{2},...,\mathbf{x}_{N},\mathbf{x}_{N+1},...,\mathbf{x}_{N+M}\}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{Y}=\{-1,1\}$
+\end_inset
+
+, and target function 
+\begin_inset Formula $f:\mathcal{X}\mathcal{\rightarrow\mathcal{Y}}$
+\end_inset
+
+ by definition is uknown to us.
+ Training data set 
+\begin_inset Formula $\mathcal{D}=\{(\mathbf{x}_{1},y_{1}),(\mathbf{x}_{2},y_{2}),...,(\mathbf{x}_{N},y_{n})\}$
+\end_inset
+
+.
+ We define off-training-set-error of a hypothesis 
+\begin_inset Formula $h$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $f$
+\end_inset
+
+ by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E_{off}(h,f)=\frac{1}{M}\sum_{m=1}^{M}\llbracket h(\mathbf{x}_{N+m})\neq f(\mathbf{x}_{N+m})\rrbracket
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(a) 
+\end_layout
+
+\begin_layout Standard
+In this task we say that 
+\begin_inset Formula $f(x)=+1$
+\end_inset
+
+for all 
+\series bold
+
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+
+\series default
+ and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h(x)\mathbb{\mathrm{\coloneqq\begin{cases}
++1, & \text{for }x=x_{k}\text{and }k\text{ is odd and}1\leq k\leq M+N\\
+-1, & \text{otherwise }
+\end{cases}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $E_{off}(h,f)$
+\end_inset
+
+ in this case depends on the number of even numbers in the interval [
+\begin_inset Formula $N+1,N+2,...,N+M]$
+\end_inset
+
+, since 
+\begin_inset Formula $h$
+\end_inset
+
+ gives the wrong output for an even index 
+\begin_inset Formula $k$
+\end_inset
+
+ of a datapoint.
+ For any interval of the size 
+\begin_inset Formula $M$
+\end_inset
+
+ number of even numbers is given by the formula: 
+\begin_inset Formula $\frac{lastEven-firstEven}{2}+1$
+\end_inset
+
+, where the first and the last even are numbers in an interval.
+ Because we do not know if 
+\begin_inset Formula $M$
+\end_inset
+
+ is either even or odd number we must use piecewise function 
+\begin_inset Formula $a(M)$
+\end_inset
+
+ which give a total number of even numbers in the interval 
+\begin_inset Formula $N+1\leq k\leq M$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\#even(k)=\begin{cases}
+\frac{k}{2} & \mbox{if \ensuremath{k} is even};\\
+\frac{k-1}{2} & \text{if }k \text{is odd}
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Info: If we must search for the number of odd numbers then the formula would
+ look like this:
+\begin_inset Formula 
+\[
+\#odd(l)=\begin{cases}
+\frac{k}{2} & \mbox{if \ensuremath{k} is even};\\
+\frac{k+1}{2} & \text{if }k \text{is odd}
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Hence
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+E_{off}(h,f) & = & \frac{1}{M}\#even(M)\\
+E_{off}(h,f) & = & \begin{cases}
+\frac{1}{2} & \mbox{if \ensuremath{M} is even};\\
+\frac{1}{2}-\frac{1}{2M} & \text{if }M\text{ is odd}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It can be shown that it is the same as 
+\begin_inset Formula $E_{off}(h,f)=\frac{1}{M}(\lfloor\frac{N+M}{2}\rfloor-\lfloor\frac{N}{2}\rfloor)$
+\end_inset
+
+.
+ Proof to be added.
+\end_layout
+
+\begin_layout Paragraph*
+(b) 
+\end_layout
+
+\begin_layout Standard
+We must recall that the assumption from (a) does not work here, and we still
+ do not know function 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ We also do not know the dimensionality of the datapoint in the input space
+ 
+\begin_inset Formula $\mathcal{X}=\{\mathbf{x}_{1,}\mathbf{x}_{2},...,\mathbf{x}_{N},\mathbf{x}_{N+1},...,\mathbf{x}_{N+M}\}$
+\end_inset
+
+ but we know that this input space is fixed (all 
+\begin_inset Formula $\mathbf{x}_{k}$
+\end_inset
+
+ for 
+\begin_inset Formula $1\leq k\leq N+M$
+\end_inset
+
+ are already set).
+ In this case we have 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ of size 
+\begin_inset Formula $N$
+\end_inset
+
+ generated in a deterministic way, and 
+\begin_inset Formula $y_{n}=f(\mathbf{x}_{n})$
+\end_inset
+
+ (
+\begin_inset Formula $1\leq n\leq N$
+\end_inset
+
+) is not affected by any noise.
+ So, how many possible 
+\begin_inset Formula $f:\mathcal{X}\mathcal{\rightarrow\mathcal{Y}}$
+\end_inset
+
+ can 'generate'
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+? The subtle point in this case is the assumption: 
+\begin_inset Quotes eld
+\end_inset
+
+For a fixed 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ of size
+\begin_inset Formula $N$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, which means that
+\begin_inset Formula $\mathcal{D}=\{(\mathbf{x}_{1},y_{1}),(\mathbf{x}_{2},y_{2}),...,(\mathbf{x}_{N},y_{n})\}$
+\end_inset
+
+ is already generated.
+ We can calculate how many possible outputs 
+\begin_inset Formula $y_{n}$
+\end_inset
+
+ for 
+\begin_inset Formula $1\leq n\leq N$
+\end_inset
+
+ we can get? Only 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ But there are remaining 
+\begin_inset Formula ${\mathbf{x}_{N+1},...,\mathbf{x}_{N+M}\}$
+\end_inset
+
+ datapoints for which we can have 
+\begin_inset Formula $2^{M}$
+\end_inset
+
+ possible values 
+\begin_inset Formula $\{-1,1\}$
+\end_inset
+
+.
+ So, the anwer is 
+\begin_inset Formula $2^{M}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+(c) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h$
+\end_inset
+
+is fixed on an unknown target function 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ We have got off-traing-set of size 
+\begin_inset Formula $M.$
+\end_inset
+
+ Knowing that 
+\begin_inset Formula $0\leq k\leq M$
+\end_inset
+
+ how many of those 
+\begin_inset Formula $f$
+\end_inset
+
+ (the (b) result) satisfy 
+\begin_inset Formula $E_{off}(h,f)=\frac{k}{M}$
+\end_inset
+
+?
+\begin_inset Newline newline
+\end_inset
+
+The whole space of possibilities is hidden in off-training set.
+ In addition we are not interested in the sequence of misclassified datapoints,
+ so 
+\begin_inset Formula $1^{k}2^{M}$
+\end_inset
+
+is not applicable here.
+ If we are interested only on the total number of such possibilities then
+ the equation will be satisfied by combinations 
+\begin_inset Formula ${M \choose k}$
+\end_inset
+
+.
+ So, the number of 
+\begin_inset Formula $f$
+\end_inset
+
+ which 'generates' 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ and satisfies 
+\begin_inset Formula $E_{off}(h,f)=\frac{k}{M}$
+\end_inset
+
+ is 
+\begin_inset Formula ${M \choose k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+(d) 
+\end_layout
+
+\begin_layout Standard
+In this section of the problem 
+\begin_inset Formula $E_{off}(h,f)$
+\end_inset
+
+is a random variable for which a probability distribuition is 
+\begin_inset Formula $\mathbb{P}[E(h,f)=\frac{k}{M}]=\frac{1}{M+1}$
+\end_inset
+
+, because we can get 
+\begin_inset Formula $M+1$
+\end_inset
+
+values of the random variable 
+\begin_inset Formula $\{\frac{0}{M},\frac{1}{M},\frac{2}{M},...,\frac{M}{M}\}$
+\end_inset
+
+and each of them is equally likely in probability, since 
+\begin_inset Formula $f$
+\end_inset
+
+ is equally likely in probability.
+ So, the expected value of 
+\begin_inset Formula $E_{f}[E_{off}(h,f)]$
+\end_inset
+
+ may be computed as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{gather*}
+E_{f}[E_{off}(h,f)]=\frac{1}{M+1}\sum_{k=0}^{M}\frac{k}{M}=\frac{1}{M+1}\frac{1}{M}\sum_{k=0}^{M}k=\frac{1}{(M+1)M}\frac{(M+1)M}{2}=\frac{1}{2}
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E_{f}[E_{off}(h,f)]$
+\end_inset
+
+ does not depend on 
+\begin_inset Formula $h$
+\end_inset
+
+ and is the same for any 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $f$
+\end_inset
+
+ gives 
+\begin_inset Formula $\{-1,1\}$
+\end_inset
+
+with the same probability no matter what datapoints it takes, so let take
+ an exact case.
+ The value of 
+\begin_inset Formula $f$
+\end_inset
+
+ is obtained by flipping a fair coin.
+ We can get two values in such a case: 
+\begin_inset Formula $\{-1,+1\}$
+\end_inset
+
+.
+ It points out that 
+\begin_inset Formula $f$
+\end_inset
+
+ is a random variable hence 
+\begin_inset Formula $\mathbb{P}[f(\mathbf{x}_{n})=+1]=\mathbb{P}[f(\mathbf{x}_{n})=-1]=\frac{1}{2}$
+\end_inset
+
+.
+ Now let's assume that a given 
+\begin_inset Formula $h$
+\end_inset
+
+ is going to be a constant function 
+\begin_inset Formula $h(\mathbf{x}_{n})=+1$
+\end_inset
+
+.
+ So, what value 
+\begin_inset Formula $E_{f}[E_{off}(h,f)]$
+\end_inset
+
+ is going to take? 
+\begin_inset Formula $E_{off}(h,f)$
+\end_inset
+
+ is 
+\begin_inset Formula $0$
+\end_inset
+
+ if 
+\begin_inset Formula $f(\cdotp)=+1$
+\end_inset
+
+, and 
+\begin_inset Formula $1$
+\end_inset
+
+when 
+\begin_inset Formula $f(\cdotp)=-1$
+\end_inset
+
+.
+ 
+\begin_inset Formula $E_{off}(h,f)=0\mathbb{P}[f(\mathbf{x}_{n})=+1]+1\mathbb{P}[f(\mathbf{x}_{n})=-1]=\frac{1}{2}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This point shows that if you are in a learning situation with a random 
+\begin_inset Formula $f$
+\end_inset
+
+, then no matter what you do in-sample, your out-of-sample performance will
+ be very bad.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+(e) 
+\end_layout
+
+\begin_layout Standard
+In this case we still do not know 
+\begin_inset Formula $f$
+\end_inset
+
+ and the values of 
+\begin_inset Formula $f$
+\end_inset
+
+ are equally likely in probability, hence the 
+\begin_inset Formula $f$
+\end_inset
+
+ is a random variable (read carefully the whole point (d) and the description
+ below that point).
+ According to (d) the expected value of 
+\begin_inset Formula $E_{f}[E_{off}(h,f)]$
+\end_inset
+
+ does not depend on 
+\begin_inset Formula $h$
+\end_inset
+
+, so no matter what algorithm we use, the 
+\begin_inset Formula $E_{f}[E_{off}(h,f)]$
+\end_inset
+
+ will be the same, hence 
+\begin_inset Formula $E_{f}[E_{off}(A_{1}(D),f)]=E_{f}[E_{off}(A_{2},f)]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This point confirms that if you are in a learning situation with a random
+ 
+\begin_inset Formula $f$
+\end_inset
+
+, then no matter what you do in-sample, your out-of-sample performance will
+ be very bad.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Problem 1.11
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E_{in}$
+\end_inset
+
+is defined as 
+\begin_inset Formula $E_{in}(h)=\frac{1}{N}\llbracket h(x_{n})\neq f(x_{n})\rrbracket=\frac{1}{N}\llbracket h(x_{n})\neq y_{n}\rrbracket$
+\end_inset
+
+.
+ In the problem I'm supposed to write down the in-sample error 
+\begin_inset Formula $E_{in}$
+\end_inset
+
+ that one should minimize to obtain 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ Using the risk matrices I should weight the different types of error (false
+ accept, false reject).
+ There are two risk matrices: one for Supermakret example, and the second
+ one for CIA example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Supermarket
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $h$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CIA
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $h$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1000$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To calculate in-sample error I need data.
+ But there is no data in the problem, so let me assume that I have one dataset
+ 
+\begin_inset Formula $\mathcal{D}=\{(\mathbf{x}_{1},+1),(\mathbf{x}_{2},-1),(\mathbf{x}_{3},-1),(\mathbf{x}_{4},+1)\}$
+\end_inset
+
+, hence (
+\begin_inset Formula $N=4$
+\end_inset
+
+) and two constant hipothesis 
+\begin_inset Formula $h_{+}(\mathbf{x}_{n})=+1$
+\end_inset
+
+, 
+\begin_inset Formula $h_{-}(\mathbf{x}_{n})=-1$
+\end_inset
+
+, so let 
+\begin_inset Formula $\mathcal{H}=\{h_{+},h_{-}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the case of the Supermarket example: 
+\begin_inset Formula $E_{in}(h_{+})=\frac{1}{4}(0+1+1+0)=\frac{1}{2}$
+\end_inset
+
+, 
+\begin_inset Formula $E_{in}(h_{-})=\frac{1}{4}(10+0+0+10)=5$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the case of CIA example: 
+\begin_inset Formula $E_{in}(h_{+})=\frac{1}{4}(0+1000+1000+0)=500$
+\end_inset
+
+, 
+\begin_inset Formula $E_{in}(h_{-})=\frac{1}{4}(1+0+0+1)=\frac{1}{2}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Final hypothesis will be different for each of considered examples.
+ In the case of Supermarket it's going to be 
+\begin_inset Formula $h_{+}$
+\end_inset
+
+and in the case of CIA it'll be 
+\begin_inset Formula $h_{-}.$
 \end_inset
 
 

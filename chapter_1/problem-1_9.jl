@@ -1,4 +1,4 @@
-using Distributions, DataFrames, Gadfly; 
+using Distributions, DataFrames, Gadfly;
 
 N = 10.0
 Ns = 1:50
@@ -12,14 +12,14 @@ wanted_min_coin_chernoff_rhs(ε::Float64) = 2.0^(-β(ε)*N) #min to be proven
 min_coin_chernoff_rhs(;ε=0.0) = (N::Int) -> 2.0^(-β(ε)*N)
 
 
-draw(PNG("problem-1_9_c_beta.png", 18cm, 18cm), plot(β, εs[1], εs[length(εs)], 
+draw(PNG("problem-1_9_c_beta.png", 18cm, 18cm), plot(β, εs[1], εs[length(εs)],
 	Guide.ylabel("β"),
 	Guide.xlabel("ε"),
 	Guide.title("Problem 1.9/c - β(ε) for ε ∈ (0,0.5)")
 ))
 
 
-draw(PNG("problem-1_9_c_chernoff-coin-RHS.png", 18cm, 18cm), 
+draw(PNG("problem-1_9_c_chernoff-coin-RHS.png", 18cm, 18cm),
 	plot(
 		layer(x=Ns, y=map(min_coin_chernoff_rhs(ε=0.1),Ns),Geom.point, Geom.line, Theme(default_color=colorant"#000000")),
 		layer(x=Ns, y=map(min_coin_chernoff_rhs(ε=0.2),Ns),Geom.point, Geom.line, Theme(default_color=colorant"#005555")),
@@ -33,17 +33,25 @@ draw(PNG("problem-1_9_c_chernoff-coin-RHS.png", 18cm, 18cm),
 ))
 
 
-df=DataFrame(α=αs, 
+
+df=DataFrame(α=αs,
 		ε=εs,
-		chernoff_rhs=map((α) -> min_chernoff_rhs(α), αs),	
-		wanted_chernoff_coin_rhs=map((ε) -> wanted_min_coin_chernoff_rhs(ε), εs),	
+		chernoff_rhs=map((α) -> min_chernoff_rhs(α), αs),
+		wanted_chernoff_coin_rhs=map((ε) -> wanted_min_coin_chernoff_rhs(ε), εs),
 )
-draw(PNG("problem-1_9_c-min_rhs_chernoff.png", 18cm, 18cm), 
+
+
+draw(PNG("problem-1_9_c-min_rhs_chernoff.png", 18cm, 18cm),
 	plot(df,
-	layer(x="α", y="chernoff_rhs", Geom.point, Geom.line, Theme(default_color=colorant"red")),	
+	layer(x="α", y="chernoff_rhs", Geom.point, Geom.line, Theme(default_color=colorant"red")),
 	layer(x="ε", y="wanted_chernoff_coin_rhs", Geom.point, Geom.line, Theme(default_color=colorant"blue")),
 	Guide.ylabel("mininized Chernoff RHS with respect to s for the given α"),
 	Guide.title("Problem 1.9/c Chernoff for α ∈ (0,1)  and ε ∈ (0,0.5)"),
 	Guide.manual_color_key("Legend", ["chernoff_rhs","wanted chernoff rhs for fair coin"], ["red", "blue"])
 
 ))
+
+
+
+
+
