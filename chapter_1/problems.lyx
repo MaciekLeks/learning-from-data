@@ -2532,7 +2532,7 @@ For a fixed
 
 .
  But there are remaining 
-\begin_inset Formula ${\mathbf{x}_{N+1},...,\mathbf{x}_{N+M}\}$
+\begin_inset Formula $\{\mathbf{x}_{N+1},\mathbf{x}_{N+2},...,\mathbf{x}_{N+M}\}$
 \end_inset
 
  datapoints for which we can have 
@@ -3294,6 +3294,347 @@ and in the case of CIA it'll be
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section*
+Problem 1.12
+\end_layout
+
+\begin_layout Standard
+In this case the author of the problem wants me to find a value which minimize
+ each of the error functions and he calls each value as 'representative'
+ value for a given algorithm.
+ In the problem we have 
+\begin_inset Formula $N$
+\end_inset
+
+ datapoints and we know that 
+\begin_inset Formula $y_{1}\leq y_{2}\leq...\leq y_{N}$
+\end_inset
+
+(the crucial part of the problem definition).
+ 
+\end_layout
+
+\begin_layout Subsection*
+(a) 
+\end_layout
+
+\begin_layout Standard
+In the case of algorithm that minimizes the in-sample sum of squared deviations
+ to find the hypothesis 
+\begin_inset Formula $h$
+\end_inset
+
+which can be treated as the final hypothesis 
+\begin_inset Formula $g$
+\end_inset
+
+ we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E_{in}(h)=\sum_{n=1}^{N}(h-y_{n})^{2}
+\]
+
+\end_inset
+
+I have to show that 
+\begin_inset Formula $h_{mean}=\sum_{n=1}^{N}y_{n}$
+\end_inset
+
+ minimizes this const function, which means 
+\begin_inset Formula 
+\[
+h_{mean}=\arg\min_{h}E_{in}(h)=\arg\min_{h}\sum_{n=1}^{N}(h-y_{n})^{2}
+\]
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+To find the value that minimizes this cost function I must find the derivative
+ and then find for which value is equal to 0.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+E_{in}^{'}(h)=(\sum_{n=1}^{N}(h-y_{n})^{2})'=2\sum_{n=1}^{N}(h-y_{n})
+\]
+
+\end_inset
+
+Now, let me find the value of 
+\begin_inset Formula $h$
+\end_inset
+
+ for which 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $E_{in}^{'}(h)$
+\end_inset
+
+ equals 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+E_{in}^{'}(h) & = & 0\\
+2\sum_{n=1}^{N}(h-y_{n}) & = & 0\\
+\sum_{n=1}^{N}h & = & \sum_{n=1}^{N}y_{n}\\
+Nh & = & \sum_{n=1}^{N}y_{n}\\
+h & = & \frac{1}{N}\sum_{n=1}^{N}y_{n}=h_{mean}
+\end{eqnarray*}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+So, if one uses the sum of squared deviations as the cost function then
+ 
+\begin_inset Formula $h_{mean}$
+\end_inset
+
+minimizes that cost function.
+\end_layout
+
+\begin_layout Subsection*
+(b) 
+\end_layout
+
+\begin_layout Standard
+In the case of algorithm that minimizes the in-sample sum of absolute deviations
+ to find the hypothesis 
+\begin_inset Formula $h$
+\end_inset
+
+which can be treated as the final hypothesis 
+\begin_inset Formula $g$
+\end_inset
+
+ we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E_{in}(h)=\sum_{n=1}^{N}|h-y_{n}|
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+I have to show that 
+\begin_inset Formula $h_{median}$
+\end_inset
+
+ minimizes this const function, which means
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{median}=\arg\min_{h}E_{in}(h)=\arg\min_{h}\sum_{n=1}^{N}|h-y_{n}|
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+One should notice that 
+\begin_inset Formula $\frac{d|x|}{dx}=sign(x)$
+\end_inset
+
+, hence 
+\begin_inset Formula $\frac{d|x-a|}{dx}=sign(x-a)$
+\end_inset
+
+, which leads to equation
+\begin_inset Formula 
+\[
+E_{in}^{'}(h)=(\sum_{n=1}^{N}|h-y_{n}|)'=\sum_{n=1}^{N}sign(h-y_{n})
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Now, I must find such 
+\begin_inset Formula $h$
+\end_inset
+
+ for which 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $E_{in}^{'}(h)$
+\end_inset
+
+ equals 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ The sum of all 
+\begin_inset Formula $-1$
+\end_inset
+
+and all 
+\begin_inset Formula $+1$
+\end_inset
+
+ in the set 
+\begin_inset Formula $\{sign(h-y_{1}),sign(h-y_{2}),...,sign(h-y_{N})\}$
+\end_inset
+
+ is equal to 
+\begin_inset Formula $0$
+\end_inset
+
+ only if the number of positve items (
+\begin_inset Formula $+1$
+\end_inset
+
+) equals the number of negative items 
+\begin_inset Formula $(-1)$
+\end_inset
+
+ , which happens when 
+\begin_inset Formula $h=h_{median}=median(\{y_{1},y_{2},...,y_{N}\})$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+(c) 
+\end_layout
+
+\begin_layout Standard
+We assume that in the set of items 
+\begin_inset Formula $y_{1}\leq y_{2}\leq...\leq y_{N}$
+\end_inset
+
+, 
+\begin_inset Formula $y_{N}$
+\end_inset
+
+ is an outlier since 
+\begin_inset Formula $y_{N}=y_{N}+\epsilon$
+\end_inset
+
+, where 
+\begin_inset Formula $\epsilon\rightarrow\infty$
+\end_inset
+
+.
+ I must answer what happens to 
+\begin_inset Formula $h_{mean}$
+\end_inset
+
+(a) and 
+\begin_inset Formula $h_{median}$
+\end_inset
+
+(b) in such a case.
+ Looking at (a) 
+\begin_inset Formula $\frac{1}{N}\sum_{n=1}^{N}y_{n}=h_{mean}$
+\end_inset
+
+and (b) 
+\begin_inset Formula $h_{median}=median\{y_{1},y_{2},...,y_{N}\}$
+\end_inset
+
+ one should notice that for (a) 
+\begin_inset Formula $h_{mean}$
+\end_inset
+
+significantly increases, but for the (b) 
+\begin_inset Formula $h_{median}$
+\end_inset
+
+does not change.
+ It can be concluded that Mean-Square-Error (a) is sensitive on outliers
+ while Median-Absolute-Error (b) is not.
+ (b) treats every datapoint the same, while (a) emphasizes the extremes
+ - the square of a very small number (smaller than 1) is even smaller, and
+ the square of a big number is even bigger.
+ In the case of (a) outliers may have an impact on the prediction capabilities
+ of final hypothesis.
+ This side effect does not appear in the case of (b) and therefore can lead
+ to better predictions when extreme outliers are present.
+ (b) seems to be more demanding on methods and technques to minimize the
+ cost function.
+ 
+\end_layout
+
+\begin_layout Standard
+Extra: Mathematical proof for 
+\begin_inset Formula $h_{mean}$
+\end_inset
+
+ growth affected by an outlier can be found on 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://stats.stackexchange.com/questions/7032/effect-of-missing-data-and-outliers-
+on-least-square-estimation
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \end_body
