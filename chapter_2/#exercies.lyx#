@@ -294,25 +294,21 @@ is the largest integer
 \end_inset
 
 ?
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 A growth function for binary target functions must satisfied:
 \end_layout
 
 \begin_layout Standard
 1.
- By definition of the growth function 
-\begin_inset Formula $m_{H}(N)\leq2^{N}$
-\end_inset
-
-
+ By definition 
 \end_layout
 
 \begin_layout Standard
 2.
- By theorem (weak version), if if 
-\begin_inset Formula $m_{H}(k)<2^{k}$
+ By theorem 2.4, if 
+\begin_inset Formula $m_{H}(N)<2^{k}$
 \end_inset
 
 for some 
@@ -320,96 +316,6 @@ for some
 \end_inset
 
  then 
-\begin_inset Formula $m_{H}(N)\leq N^{k-1}+1$
-\end_inset
-
- for all 
-\begin_inset Formula $N$
-\end_inset
-
- (see the book forum on 
-\begin_inset Quotes eld
-\end_inset
-
-Problem 2.8
-\begin_inset Quotes erd
-\end_inset
-
- and know that 
-\begin_inset Formula $\sum_{i=0}^{k-1}{N \choose i}\leq N^{k-1}+1$
-\end_inset
-
- for all 
-\begin_inset Formula $N$
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Standard
-3.
- By theorem 2.4 (strong version), if 
-\begin_inset Formula $m_{H}(k)<2^{k}$
-\end_inset
-
-for some 
-\begin_inset Formula $k$
-\end_inset
-
- then 
-\begin_inset Formula $m_{H}(N)\leq\sum_{i=0}^{k-1}{N \choose i}$
-\end_inset
-
- for all 
-\begin_inset Formula $N$
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-To verify formula 
-\begin_inset Formula $m_{H}(N)=N+2^{\lfloor\frac{N}{2}\rfloor}$
-\end_inset
-
- I start by checking point 2 or 3, because those are stronger conditions
- than point 1 and if there is a break point then the bound (2 and 3) must
- be satisfied.
- Does the inspected growh function have a break point? Yes, because for
- 
-\begin_inset Formula $k=3$
-\end_inset
-
-, 
-\begin_inset Formula $m_{H}(3)=5<2^{3}$
-\end_inset
-
-.
- Now, you can use 2 or 3 formula.
- In order not to compute 2 and 3 I've prepared a sample code in exercise-2_2_b.jl
-, which shows that the bounds (2 and 3) are not true when 
-\begin_inset Formula $N=16$
-\end_inset
-
- (for 
-\begin_inset Formula $m_{H}(N)\leq N^{k-1}+1$
-\end_inset
-
-) and 
-\begin_inset Formula $N=14$
-\end_inset
-
- (for 
-\begin_inset Formula $m_{H}(N)\leq\sum_{i=0}^{k-1}{N \choose i}$
-\end_inset
-
-).
- So, the anser is no.
- There is no a hypothesis set for which 
-\begin_inset Formula $m_{H}(N)=N+2^{\lfloor\frac{N}{2}\rfloor}.$
-\end_inset
-
- 
 \end_layout
 
 \end_body
