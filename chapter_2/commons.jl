@@ -28,7 +28,7 @@ when_theorem_2_4_breaks(theorem::Function, mh::Function, k::Int, iters=100) = be
 			return i
 		end
 	end
-	return iters+1 
+	return NaN 
 end
 
 theorem2_4_strong_vs_weak_proof(mh::Function, k::Int, N::Int) = begin 
