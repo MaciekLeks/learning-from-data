@@ -409,7 +409,246 @@ To verify formula
 \begin_inset Formula $m_{H}(N)=N+2^{\lfloor\frac{N}{2}\rfloor}.$
 \end_inset
 
+
+\end_layout
+
+\begin_layout Section*
+Excercise 2.3: 
+\end_layout
+
+\begin_layout Standard
+By defintion 
+\begin_inset Formula $d_{vc}(H)$
+\end_inset
+
+ in the case of postive ray (i) is 
+\begin_inset Formula $d_{vc}=1$
+\end_inset
+
+ (since 
+\begin_inset Formula $d_{vc}=k-1$
+\end_inset
+
+), for postive intervals (ii) 
+\begin_inset Formula $d_{vc}=2$
+\end_inset
+
+, and for convex sets (iii) 
+\begin_inset Formula $d_{vc}=\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+Excercise 2.4: 
+\end_layout
+
+\begin_layout Standard
+We need to show that 
+\begin_inset Formula $d_{vc}$
+\end_inset
+
+ of the perceptron in a 
+\begin_inset Formula $d$
+\end_inset
+
+-dimmension space equals 
+\begin_inset Formula $d+1$
+\end_inset
+
+.The proof consists of two steps:
+\end_layout
+
+\begin_layout Standard
+(a) 
+\begin_inset Formula $d_{vc}\geq d+1$
+\end_inset
+
+: we need to show that: there are some 
+\begin_inset Formula $d+1$
+\end_inset
+
+points we can shatter
+\end_layout
+
+\begin_layout Standard
+(b) 
+\begin_inset Formula $d_{vc}\leq d+1$
+\end_inset
+
+: we need to show that: we cannot shatter any set od 
+\begin_inset Formula $d+2$
+\end_inset
+
+ points
+\end_layout
+
+\begin_layout Paragraph*
+(a)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbf{X} & =\begin{bmatrix}\cdots\mathbf{x}_{1}^{T}\cdots\\
+\cdots\mathbf{x}_{2}^{T}\cdots\\
+\vdots\\
+\cdots\mathbf{x}_{d+1}^{T}\cdots
+\end{bmatrix}
+\end{alignat*}
+
+\end_inset
+
+be an inertible matrix where 
+\begin_inset Formula $x_{0}=1$
+\end_inset
+
+(our space is 
+\begin_inset Formula $d+1$
+\end_inset
+
+-dimensional space) and the sample matrix looks as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{X}=\begin{bmatrix}1 & 0 & 0 & \ldots & 0\\
+1 & 1 & 0 & \ldots & 0\\
+1 & 0 & 1 & \ldots & 0\\
+\vdots & \vdots & \vdots & \ddots & 0\\
+1 & 0 & 0 & 0 & 1
+\end{bmatrix}$
+\end_inset
+
+, then getting 
+\begin_inset Formula $\mathbf{y}=\begin{bmatrix}\pm1\\
+\pm1\\
+\pm1\\
+\pm1\\
+\pm1
+\end{bmatrix}$
+\end_inset
+
+ (
+\begin_inset Formula $2^{d+1}$
+\end_inset
+
+) dichotomies is calculable, since 
+\begin_inset Formula $\mathbf{y}=sign(\mathbf{Xw})\Rightarrow$
+\end_inset
+
  
+\begin_inset Formula $\mathbf{y}=\mathbf{Xw}$
+\end_inset
+
+ it's enought to calculate vector 
+\begin_inset Formula $\mathbf{w}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\mathbf{X}$
+\end_inset
+
+ is invertible, so 
+\begin_inset Formula $\mathbf{X}^{-1}\mathbf{y}=\mathbf{X^{-1}Xw}$
+\end_inset
+
+, hence 
+\begin_inset Formula $\mathbf{w}=\mathbf{X}^{-1}\mathbf{y}$
+\end_inset
+
+.
+ We showed that there are 
+\begin_inset Formula $d+1$
+\end_inset
+
+points we can shatter using the perceptron.
+ So we proved that 
+\begin_inset Formula $d_{vc}\geq d+1$
+\end_inset
+
+ (the lower bound: VC dimmension is equal or larger than some value).
+\end_layout
+
+\begin_layout Paragraph*
+(b)
+\end_layout
+
+\begin_layout Standard
+Now, to show that 
+\begin_inset Formula $d_{vc}\leq d+1$
+\end_inset
+
+ we need to show we cannot shatter any set od 
+\begin_inset Formula $d+2$
+\end_inset
+
+ points.
+ In this case we have 
+\begin_inset Formula $d+2$
+\end_inset
+
+ vectors of 
+\begin_inset Formula $\mathbf{x}_{i}$
+\end_inset
+
+, where 
+\begin_inset Formula $1\leq i\leq d+2$
+\end_inset
+
+, hence we have
+\begin_inset Formula $+1$
+\end_inset
+
+vector than total number of dimensions (our space is 
+\begin_inset Formula $d+1$
+\end_inset
+
+-dimensional).
+ Accori to the theory of vector spaces when we have more vectors than dimensions
+ of the space then they are linearly dependent (one of the vectors is a
+ linear combination of the others).
+ Which means that for instance our extra point 
+\begin_inset Formula $\mathbf{x}_{d+2}$
+\end_inset
+
+, can be compute by the equation (in 
+\begin_inset Formula $d+1$
+\end_inset
+
+-dimensional space): 
+\begin_inset Formula 
+\[
+\mathbf{x}_{d+2}=\sum_{i=1}^{d+1}a_{i}\mathbf{x}_{i}
+\]
+
+\end_inset
+
+We need to get 
+\begin_inset Formula $\mathbf{y}=\begin{bmatrix}\pm1\\
+\pm1\\
+\pm1\\
+\pm1\\
+\pm1
+\end{bmatrix}$
+\end_inset
+
+(
+\begin_inset Formula $2^{d+2}$
+\end_inset
+
+) dichotomies, where 
+\begin_inset Formula $\mathbf{y}$
+\end_inset
+
+ is of 
+\begin_inset Formula $d+2$
+\end_inset
+
+ size.
+ Is it possible?
 \end_layout
 
 \end_body

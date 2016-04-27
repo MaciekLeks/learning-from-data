@@ -109,7 +109,7 @@ Problem 1.3:
 \end_layout
 
 \begin_layout Standard
-For the rest of the problem let's assume that subsript 
+For the rest of the problem let's assume that subscript 
 \begin_inset Formula $n$
 \end_inset
 
@@ -145,7 +145,7 @@ Since
 \begin_inset Formula $w^{*}$
 \end_inset
 
-perfect for separable data (see the assumption at the begiining of the task),
+perfect for separable data (see the assumption at the begining of the task),
  hence every example
 \end_layout
 
@@ -2394,7 +2394,7 @@ h(x)\mathbb{\mathrm{\coloneqq\begin{cases}
 \[
 \#even(k)=\begin{cases}
 \frac{k}{2} & \mbox{if \ensuremath{k} is even};\\
-\frac{k-1}{2} & \text{if }k \text{is odd}
+\frac{k-1}{2} & \text{if }k\text{is odd}
 \end{cases}
 \]
 
@@ -2410,7 +2410,7 @@ Info: If we must search for the number of odd numbers then the formula would
 \[
 \#odd(l)=\begin{cases}
 \frac{k}{2} & \mbox{if \ensuremath{k} is even};\\
-\frac{k+1}{2} & \text{if }k \text{is odd}
+\frac{k+1}{2} & \text{if }k\text{is odd}
 \end{cases}
 \]
 
