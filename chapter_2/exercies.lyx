@@ -25,6 +25,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -501,7 +502,7 @@ Let
 
 \end_inset
 
-be an inertible matrix where 
+be an invertible matrix where 
 \begin_inset Formula $x_{0}=1$
 \end_inset
 
@@ -542,7 +543,7 @@ be an inertible matrix where
 \begin_inset Formula $\mathbf{y}=\mathbf{Xw}$
 \end_inset
 
- it's enought to calculate vector 
+ it's enough to calculate vector 
 \begin_inset Formula $\mathbf{w}$
 \end_inset
 
@@ -581,7 +582,7 @@ Now, to show that
 \begin_inset Formula $d_{vc}\leq d+1$
 \end_inset
 
- we need to show we cannot shatter any set od 
+ we need to prove we cannot shatter any set of 
 \begin_inset Formula $d+2$
 \end_inset
 
@@ -614,19 +615,20 @@ vector than total number of dimensions (our space is
 \begin_inset Formula $\mathbf{x}_{d+2}$
 \end_inset
 
-, can be compute by the equation (in 
+, can be computed by the equation (in 
 \begin_inset Formula $d+1$
 \end_inset
 
 -dimensional space): 
 \begin_inset Formula 
-\[
+\begin{equation}
 \mathbf{x}_{d+2}=\sum_{i=1}^{d+1}a_{i}\mathbf{x}_{i}
-\]
+\end{equation}
 
 \end_inset
 
-We need to get 
+ ,where not all a_{i} coefficients are zeros.
+ We need to show that we can't get 
 \begin_inset Formula $\mathbf{y}=\begin{bmatrix}\pm1\\
 \pm1\\
 \pm1\\
@@ -649,6 +651,533 @@ We need to get
 
  size.
  Is it possible?
+\begin_inset Newline newline
+\end_inset
+
+Suppose we want the perceptron can learn output
+\begin_inset Formula $\mathbf{y}=\begin{bmatrix}sign(a_{1})\\
+sign(a_{2})\\
+sign(a_{3})\\
+\cdots\\
+sign(a_{d+1})\\
+-1
+\end{bmatrix}$
+\end_inset
+
+ (we first have 
+\begin_inset Formula $y_{i}=sign(a_{i})$
+\end_inset
+
+ for every 
+\begin_inset Formula $\mathbf{x}_{i}$
+\end_inset
+
+ that 
+\begin_inset Formula $a_{i}\neq0$
+\end_inset
+
+, then we must be able to find a 
+\begin_inset Formula $\mathbf{w}^{*}$
+\end_inset
+
+ that satisfies the equation 
+\begin_inset Formula $y_{i}=sign(a_{i})=sign(\mathbf{w}^{*T}\mathbf{x}_{i})$
+\end_inset
+
+).
+ According to (1) we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbf{x}_{d+2} & = & \sum_{i=1}^{d+1}a_{i}\mathbf{x}_{i}\\
+\mathbf{w^{*}x}_{d+2} & = & \sum_{i=1}^{d+1}a_{i}\mathbf{w^{*}x}_{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+but if 
+\begin_inset Formula $y_{i}=sign(a_{i})=sign(\mathbf{w}^{*T}\mathbf{x}_{i})$
+\end_inset
+
+, then 
+\begin_inset Formula $a_{i}\mathbf{w^{*}x}_{i}>0$
+\end_inset
+
+, hence 
+\begin_inset Formula $\sum_{i=1}^{d+1}a_{i}\mathbf{w^{*}x}_{i}>0$
+\end_inset
+
+.This forces 
+\begin_inset Formula $\mathbf{w^{*}x}_{d+2}=\sum_{i=1}^{d+1}a_{i}\mathbf{w^{*}x}_{i}>0$
+\end_inset
+
+, therefore, 
+\series bold
+
+\begin_inset Formula $y_{d+2}=sign(\mathbf{w^{*}x}_{d+2})=+1$
+\end_inset
+
+
+\series default
+.
+ It is not possible to get 
+\begin_inset Formula $y_{d+2}=-1$
+\end_inset
+
+.
+ We cannot shatter any set of 
+\begin_inset Formula $d+2$
+\end_inset
+
+ points in 
+\begin_inset Formula $d+1$
+\end_inset
+
+-dimensional space.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We proved that 
+\begin_inset Formula $d_{vc}\leq d+1$
+\end_inset
+
+(a) and 
+\begin_inset Formula $d_{vc}\geq d+1$
+\end_inset
+
+(b), hence VC-dimension for the perceptron is 
+\begin_inset Formula $d_{vc}=d+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+Excercise 2.5: 
+\end_layout
+
+\begin_layout Standard
+Using VC generalization bound I need to estimate that 
+\begin_inset Formula $E_{out}$
+\end_inset
+
+will be within 
+\begin_inset Formula $0.1$
+\end_inset
+
+(
+\begin_inset Formula $\epsilon$
+\end_inset
+
+) of 
+\begin_inset Formula $E_{in}$
+\end_inset
+
+ given 
+\begin_inset Formula $100$
+\end_inset
+
+ training examples for a simple learning model whose growth function is
+ 
+\begin_inset Formula $m_{H}(N)=N+1$
+\end_inset
+
+, hence 
+\begin_inset Formula $d_{vc}=1$
+\end_inset
+
+.
+ The VC generalization bound is 
+\begin_inset Formula $E_{out}(g)\leq E_{in}(g)+\sqrt{\frac{8}{N}\ln(\frac{4m_{H}(2N)}{\delta})}$
+\end_inset
+
+.
+ To estimate the probability I must calculate 
+\begin_inset Formula $\delta$
+\end_inset
+
+ (
+\begin_inset Formula $\delta>0$
+\end_inset
+
+) then the wanted probability will be 
+\begin_inset Formula $1-\delta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The generalization error is bounded by 
+\begin_inset Formula $\sqrt{\frac{8}{N}\ln(\frac{4m_{H}(2N)}{\delta})},$
+\end_inset
+
+and so it suffices to make
+\begin_inset Formula $\epsilon\geq\sqrt{\frac{8}{N}\ln(\frac{4m_{\mathcal{H}}(2N)}{\delta})}$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\epsilon & \geq & \sqrt{\frac{8}{N}\ln(\frac{4m_{\mathcal{H}}(2N)}{\delta})}\\
+\epsilon^{2} & \geq & \frac{8}{N}\ln(\frac{4m_{\mathcal{H}}(2N)}{\delta})\\
+\frac{N\epsilon^{2}}{8} & \geq & \ln(\frac{4m_{\mathcal{H}}(2N)}{\delta})\\
+e^{\frac{N\epsilon^{2}}{8}} & \geq & \frac{4m_{\mathcal{H}}(2N)}{\delta}\\
+\delta & \geq & \frac{4m_{\mathcal{H}}(2N)}{e^{\frac{N\epsilon^{2}}{8}}}\\
+\delta & \geq & \frac{4*201}{e^{\frac{100*(0.1)^{2}}{8}}}\\
+\delta & \geq & \frac{801}{1.133148}\\
+\delta & \geq & 709.5275
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+According to the exercise theme the 
+\begin_inset Formula $\delta$
+\end_inset
+
+ value estimation should be ridiculus what shows that VC generalization
+ bound is quite loose.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Excercise 2.6:
+\end_layout
+
+\begin_layout Standard
+What we get is cardinality of the dataset (
+\begin_inset Formula $600$
+\end_inset
+
+ records, where 
+\begin_inset Formula $400$
+\end_inset
+
+ random records are taken as the training set and the rest 
+\begin_inset Formula $200$
+\end_inset
+
+ as the test set) and some 
+\begin_inset Formula $H$
+\end_inset
+
+ with 
+\begin_inset Formula $1000$
+\end_inset
+
+ hypothesis.
+ We make a selection of 
+\begin_inset Formula $g$
+\end_inset
+
+ on 
+\begin_inset Formula $400$
+\end_inset
+
+ training examples of the dataset.
+ We need to estimate 
+\begin_inset Formula $E_{out}(g)$
+\end_inset
+
+ having the estimation of 
+\begin_inset Formula $E_{in}(g)$
+\end_inset
+
+ on those 
+\begin_inset Formula $400$
+\end_inset
+
+ training examples and 
+\begin_inset Formula $E_{test}(g)$
+\end_inset
+
+ on the 
+\begin_inset Formula $200$
+\end_inset
+
+ test examples.
+\end_layout
+
+\begin_layout Paragraph*
+(a) 
+\end_layout
+
+\begin_layout Standard
+Using a 
+\begin_inset Formula $5\%$
+\end_inset
+
+ error tolerance (
+\begin_inset Formula $\delta=005$
+\end_inset
+
+) we want to estimate the 'error bar' for 
+\begin_inset Formula $E_{out}$
+\end_inset
+
+and compare it to 
+\begin_inset Formula $E_{test}$
+\end_inset
+
+.
+ Some facts first:
+\end_layout
+
+\begin_layout Standard
+- 
+\begin_inset Formula $E_{test}$
+\end_inset
+
+is just a sample estimate like 
+\begin_inset Formula $E_{in}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+- Generalization bound that applies to 
+\begin_inset Formula $E_{test}$
+\end_inset
+
+is the simple Hoeffding Inequality with one hypothesis (
+\begin_inset Formula $M=1)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+So to estimate the 'error bars' we use: [a] 
+\begin_inset Formula $E_{out}(g)\leq E_{in}(g)+\sqrt{\frac{8}{N}\ln(\frac{4m_{H}(2N)}{\delta})}$
+\end_inset
+
+ to estimate 
+\begin_inset Formula $E_{out}$
+\end_inset
+
+ on a traing set and [b] 
+\begin_inset Formula $E_{out}(g)\leq E_{test}(g)+\sqrt{\frac{1}{2N}\ln(\frac{2M}{\delta})}$
+\end_inset
+
+ to estimate 
+\begin_inset Formula $E_{out}$
+\end_inset
+
+ on a test set.
+ In the [a] bound there is 
+\begin_inset Formula $m_{H}(2N)$
+\end_inset
+
+ factor, but we do not know the growth function for the given problem.
+ We even do not know 
+\begin_inset Formula $d_{vc}$
+\end_inset
+
+ for learning model.
+ What to do? In [a] case 
+\begin_inset Formula $2N$
+\end_inset
+
+ equals 
+\begin_inset Formula $2*400$
+\end_inset
+
+, so for the 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ if we use 
+\begin_inset Formula $m_{H}(2N)\leq(2N)^{dv}+1$
+\end_inset
+
+ then it's easy to see that only if 
+\begin_inset Formula $d_{vc}=1$
+\end_inset
+
+we cannot replace 
+\begin_inset Formula $m_{H}(2N)$
+\end_inset
+
+ with the given number of hypothesis used to choose 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ There is no such a contraint in the exercise.
+ Knowing this we can now calculate 'error bars'.
+\end_layout
+
+\begin_layout Standard
+[a] 
+\begin_inset Formula $E_{out}(g)\leq E_{in}(g)+\sqrt{\frac{8}{400}\ln(\frac{4*1000}{0.05})}=E_{in}(g)+0.47579$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+[b] 
+\begin_inset Formula $E_{out}(g)\leq E_{test}(g)+\sqrt{\frac{1}{2*200}\ln(\frac{2}{0.05})}=E_{test}(g)+0.09603$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 'error bar' estimated for the [a] bound is significantly higher than
+ that calculated on [b].
+\end_layout
+
+\begin_layout Paragraph*
+(b)
+\end_layout
+
+\begin_layout Standard
+There is now sense in reserving more test examples because increasing the
+ total number of test samples it increases the 'error bar' on traing data
+ (e.g.
+ 
+\begin_inset Formula $N_{in}=300$
+\end_inset
+
+ => 'error bar' =~ 
+\begin_inset Formula $0.5486$
+\end_inset
+
+) and at the same time there is no meaningful change on the 'error bar'
+ estimated on the test set (e.g.
+ 
+\begin_inset Formula $N_{test}=300$
+\end_inset
+
+ => 'error bar' =~ 
+\begin_inset Formula $0.7841$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Section*
+Excercise 2.7:
+\end_layout
+
+\begin_layout Standard
+I need to show that 
+\begin_inset Formula $E_{out}(h)=\mathbb{P}[h(\mathbf{x})\neq f(\mathbf{x})]$
+\end_inset
+
+ can be written as an expected value of a mean-squared error 
+\begin_inset Formula $E_{out}(h)=\mathbb{E}[(h(\mathbf{x})-f(\mathbf{x}))^{2}]$
+\end_inset
+
+ for binary functions.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Paragraph*
+(a) 
+\end_layout
+
+\begin_layout Standard
+Assumption: binary function is 
+\begin_inset Formula $0$
+\end_inset
+
+ or 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ In this case a random variable is squared error with two possible values:
+ 
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $1$
+\end_inset
+
+ (The exponentiation does not change the value of the random variable).
+ 
+\begin_inset Newline newline
+\end_inset
+
+Solution: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E_{out}(h)=\mathbb{E}[(h(\mathbf{x})-f(\mathbf{x}))^{2}]=0*\mathbb{P}[h(\mathbf{x})=f(\mathbf{x})]+1*\mathbb{P}[h(\mathbf{x})\neq f(\mathbf{x})]=\mathbb{P}[h(\mathbf{x})\neq f(\mathbf{x})]$
+\end_inset
+
+, hence
+\begin_inset Formula $\mathbb{P}[h(\mathbf{x})\neq f(\mathbf{x})]=E[(h(\mathbf{x})-f(\mathbf{x}))^{2}]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+(b)
+\end_layout
+
+\begin_layout Standard
+Assumption: binary function is 
+\begin_inset Formula $\pm1$
+\end_inset
+
+.
+ In this case a random variable is squared error with two possible values:
+ 
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $4$
+\end_inset
+
+ (The exponentiation does change the value of the random variable, e.g.
+ for one of the four cases 
+\begin_inset Formula $[(-1)-(+1)]^{2}=(-2)^{2}=4$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E_{out}(h)=\mathbb{E}[(h(\mathbf{x})-f(\mathbf{x}))^{2}]=0*\mathbb{P}[h(\mathbf{x})=f(\mathbf{x})]+4*\mathbb{P}[h(\mathbf{x})\neq f(\mathbf{x})]=4*\mathbb{P}[h(\mathbf{x})\neq f(\mathbf{x})]$
+\end_inset
+
+, hence 
+\begin_inset Formula $\mathbb{P}[h(\mathbf{x})\neq f(\mathbf{x})]=\frac{1}{4}\mathbb{E}[(h(\mathbf{x})-f(\mathbf{x}))^{2}]$
+\end_inset
+
+
 \end_layout
 
 \end_body
