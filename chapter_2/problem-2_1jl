@@ -1,0 +1,19 @@
+workspace()
+ε(M::Int,N::Int,δ::Float64) = sqrt(log(2*Float64(M)/δ)/(2.0*Float64(N)))
+
+function test(M, δ, εmax)  
+	for n=1:20000
+		if (ε(M, n, δ) <= εmax) 
+			println("For M=$M, δ=$δ, εmax=$εmax searched number of examples should be at least equals $n")
+			break;
+		end
+	end
+end
+
+const εmax = 0.05
+const δ = 0.03
+const Ms = [1,100,10000]
+
+test(Ms[1], δ, εmax)
+test(Ms[2], δ, εmax)
+test(Ms[3], δ, εmax)

@@ -478,7 +478,7 @@ points we can shatter
 \begin_inset Formula $d_{vc}\leq d+1$
 \end_inset
 
-: we need to show that: we cannot shatter any set od 
+: we need to show that: we cannot shatter any set of 
 \begin_inset Formula $d+2$
 \end_inset
 
@@ -608,9 +608,9 @@ vector than total number of dimensions (our space is
 \end_inset
 
 -dimensional).
- Accori to the theory of vector spaces when we have more vectors than dimensions
- of the space then they are linearly dependent (one of the vectors is a
- linear combination of the others).
+ Accordig to the theory of vector spaces when we have more vectors than
+ dimensions of the space then they are linearly dependent (one of the vectors
+ is a linear combination of the others).
  Which means that for instance our extra point 
 \begin_inset Formula $\mathbf{x}_{d+2}$
 \end_inset
@@ -627,7 +627,11 @@ vector than total number of dimensions (our space is
 
 \end_inset
 
- ,where not all a_{i} coefficients are zeros.
+ ,where not all 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ coefficients are zeros.
  We need to show that we can't get 
 \begin_inset Formula $\mathbf{y}=\begin{bmatrix}\pm1\\
 \pm1\\
@@ -684,7 +688,7 @@ sign(a_{d+1})\\
 \begin_inset Formula $y_{i}=sign(a_{i})=sign(\mathbf{w}^{*T}\mathbf{x}_{i})$
 \end_inset
 
-).
+.
  According to (1) we have
 \end_layout
 
@@ -1178,6 +1182,182 @@ Assumption: binary function is
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section*
+Excercise 2.8:
+\end_layout
+
+\begin_layout Paragraph*
+(a) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{\mathbb{\mathcal{H}}}$
+\end_inset
+
+is a subspace of 
+\begin_inset Formula $\mathcal{\mathbb{R}}^{n}$
+\end_inset
+
+ if all linear combinations o vectors in 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ are also in 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ and it's ensured in the content of the task.
+ A subspace has an interesting characteristic which doesn't let any result
+ of linear combination to leave the subspace.
+ 
+\begin_inset Formula $\bar{g}(\mathbf{x})$
+\end_inset
+
+ is expected value of 
+\begin_inset Formula $g(\mathbf{x})$
+\end_inset
+
+ over all 
+\begin_inset Formula $D$
+\end_inset
+
+ for a particular 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+.
+ An exptected value of 
+\begin_inset Formula $g(\mathbf{x})$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $D$
+\end_inset
+
+ is also a linear combination since it is closed under vector addition and
+ scalar multiplication (all ops needed to compute an expected value), hence
+ 
+\begin_inset Formula $\bar{g}(\mathbf{x})$
+\end_inset
+
+ must belong to 
+\begin_inset Formula $\mathcal{\mathbb{\mathcal{H}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+(b)
+\end_layout
+
+\begin_layout Standard
+Every classification model descibed by 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is going to have an 'avarage function outside the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+, e.g.
+ logistic regression, since expected value gives the function resulting
+ with value not in 
+\begin_inset Formula $\{0,1\}$
+\end_inset
+
+.
+ Another example could be a linear model with 
+\begin_inset Formula $h(\mathbf{x})=a\mathbf{x}+b$
+\end_inset
+
+, where 
+\begin_inset Formula $a\neq0$
+\end_inset
+
+ .
+ For such a model the 'avarage function' gets the form of constant function
+ 
+\begin_inset Formula $\bar{g}(x)=c$
+\end_inset
+
+ which is not in the model.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+(c)
+\end_layout
+
+\begin_layout Standard
+As for the (b) the answer is NO, the 'avarage hypothesis' is not in the
+ 
+\begin_inset Formula $\mathcal{\mathbb{\mathcal{H}}}$
+\end_inset
+
+.
 \end_layout
 
 \end_body
